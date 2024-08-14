@@ -32,4 +32,5 @@ conda install pyads //或 pip install pyads
 但是此方法安装的pyads是需要python3版本的   请查看：https://pypi.org/project/pyads/
 这也导致在后续pyinstaller对代码文件打包后运行exe文件会出现pyads.structs模块不存在的报错。
 ## 问题2解决方案
-pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/，我也会上传此版本压缩包
+pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/
+我也会上传此版本压缩包
