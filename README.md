@@ -52,9 +52,9 @@ pynput检测指定按键或鼠标的功能在win10上正常但是在xp系统上�
 ### 问题4解决方案
 这需要修改python中的lib/pynput/_util/win32.py文件，若使用anaconda，路径为：adaconda(anaconda安装路径)/envs/python27(虚拟环境名称)/Lib/site-packages/lib/pynput/_util/win32.py（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
 
-## 不一定会出现的问题
-### 问题X：pyads使用typing问题
-typing是python3.5才出现的标准包，python2.7使用需要安装typing包
+## 问题5：pyads使用typing问题
+typing是python3.5才出现的标准包，python2.7使用需要安装typing包。
+### 问题5解决方案
 在**python27虚拟环境**下安装typing
 ```
 conda install typing //或用pip
