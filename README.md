@@ -3,7 +3,7 @@
 
 ## 问题1：python版本与py文件打包
 windows xp系统与最新版本的python不兼容，根据网上搜索到的内容：windows xp支持python2.7.x和3.4.x版本。但经过测试后python3.4.4无法直接使用，所以我使用了pyhton2.7.18版本。py文件的打包我选择了pyinstaller
-## 问题1解决方案
+### 问题1解决方案
 python2.7.x并不常用，所以通过anaconda的虚拟环境解决。
 安装anaconda，中文官网：https://anaconda.org.cn/anaconda/install/windows/
 
@@ -37,5 +37,20 @@ pyinstaller -F --hidden-import=pynput.keyboard._win32 --hidden-import=pynput.mou
 conda install pyads //或 pip install pyads
 ```
 但是此方法安装的pyads是使用python3环境的   请查看：https://pypi.org/project/pyads/ 这也导致在后续pyinstaller对代码文件打包后运行exe文件会出现pyads.structs模块不存在的报错。
-## 问题2解决方案
-pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/ 我也会上传此版本压缩包
+### 问题2解决方案
+pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/ 或下载我的pyads-3.1.3.tar.gz包
+
+## 问题4：pynput功能异常
+pynput检测指定按键或鼠标的功能在win10上正常但是在xp系统上无法运行
+### 问题4解决方案
+这需要修改python中的lib/pynput/_util/win32.py文件（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
+
+## 不一定会出现的问题
+### 问题X：pyads使用typing问题
+typing是python3.5才出现的标准包，python2.7使用需要安装typing包
+在**python27虚拟环境**下安装typing
+```
+conda install typing //或用pip
+```
+
+
