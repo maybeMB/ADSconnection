@@ -28,22 +28,29 @@ conda install pyinstaller  //安装pyinstaller,若出现报错可使用: pip ins
 ```
 cd  (file_path) //进入需要打包文件的路径
 activate python27 //必须要进入此虚拟环境，否则打包出来的是系统默认python环境
-pyinstaller -F --hidden-import=pynput.keyboard._win32 --hidden-import=pynput.mouse._win32 connect.py //关于--hidden-import属性在问题？中会说明
+pyinstaller -F --hidden-import=pynput.keyboard._win32 --hidden-import=pynput.mouse._win32 connect.py //关于--hidden-import属性在问题3中会说明
 ```
 
-## 问题2：pyads版本问题
+## 问题2：pyads版本问题（这会导致打包后的exe文件缺少pyads中一些库）
 在虚拟环境中应该使用
 ```
 conda install pyads //或 pip install pyads
 ```
 但是此方法安装的pyads是使用python3环境的   请查看：https://pypi.org/project/pyads/ 这也导致在后续pyinstaller对代码文件打包后运行exe文件会出现pyads.structs模块不存在的报错。
+我先是在使用pyinstaller时加入了--hidden-import=pynput.pyads.structs参数，但没有用。
+然后我在/Lib/site-packages/PyInstaller/hooks中写了hook文件，同样无用。最后才发现是pyads的版本问题，保险起见我将hook文件一并上传
 ### 问题2解决方案
 pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/ 或下载我的pyads-3.1.3.tar.gz包
+
+## 问题3：pyinstaller打包后的exe文件缺少库
+pyinstaller打包后的exe文件缺少pynput.keyboard和pynput.mouse库，
+### 问题3解决方案
+在pyinstaller打包时加入--hidden-import=pynput.keyboard._win32 --hidden-import=pynput.mouse._win32参数
 
 ## 问题4：pynput功能异常
 pynput检测指定按键或鼠标的功能在win10上正常但是在xp系统上无法运行
 ### 问题4解决方案
-这需要修改python中的lib/pynput/_util/win32.py文件，若使用anaconda，路径为：adaconda(anaconda安装地址)/envs/python27(虚拟环境名称)/Lib/site-packages/lib/pynput/_util/win32.py（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
+这需要修改python中的lib/pynput/_util/win32.py文件，若使用anaconda，路径为：adaconda(anaconda安装路径)/envs/python27(虚拟环境名称)/Lib/site-packages/lib/pynput/_util/win32.py（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
 
 ## 不一定会出现的问题
 ### 问题X：pyads使用typing问题
