@@ -55,7 +55,7 @@ pynput检测指定按键或鼠标的功能在win10上正常但是在xp系统上�
 ## 问题5：pyads使用typing问题
 typing是python3.5才出现的标准包，python2.7使用需要安装typing包。
 ### 问题5解决方案
-在***python27虚拟环境***下安装typing
+在**python27虚拟环境**下安装typing
 ```
 conda install typing //或用pip
 ```
