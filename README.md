@@ -6,7 +6,9 @@ windows xp系统与最新版本的python不兼容，根据网上搜索到的内�
 ## 问题1解决方案
 python2.7.x并不常用，所以通过anaconda的虚拟环境解决。
 安装anaconda，中文官网：https://anaconda.org.cn/anaconda/install/windows/
+
 **构建32位python2.7环境**
+
 进入cmd窗口
 ```
 set CONDA_FORCE_32BIT=1  //切换到32位
@@ -16,6 +18,7 @@ activate python36  //切换到python3.6环境
 python --version  //确认python环境
 ```
 **安装pyinstaller**
+
 注：这一步是必须的，如果不在该环境下安装，还是使用原来的pyinstaller，那么打包的程序仍然为64位
 ```
 pip -V  //再次确认是否为32位的pip
