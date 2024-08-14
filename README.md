@@ -1,4 +1,4 @@
-# 拥有可视化界面的python2.7程序在32位windows xp上与twincat2本地连接（持续施工中）
+# 编写在32位windows xp上与twincat2本地连接的python2.7程序中遇到的问题汇总（持续施工中）
 在32位windows  xp系统上与twincat2进行本地连接的前端代码，同时记录编写程序在windows xp系统上遇到的问题与解决方案
 
 ## 问题1：python版本与py文件打包
