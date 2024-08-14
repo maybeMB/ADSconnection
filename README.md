@@ -1,2 +1,2 @@
 # ADSconnection
-在32位windows  xp系统上与twincat2进行本地连接的前端代码
+在32位windows  xp系统上与twincat2进行本地连接的前端代码，同时记录编写程序在windows xp系统上遇到的问题与解决方案
