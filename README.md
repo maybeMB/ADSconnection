@@ -43,7 +43,7 @@ pyads手动安装3.1.3：https://pypi.org/project/pyads/3.1.3/ 或下载我的py
 ## 问题4：pynput功能异常
 pynput检测指定按键或鼠标的功能在win10上正常但是在xp系统上无法运行
 ### 问题4解决方案
-这需要修改python中的lib/pynput/_util/win32.py文件（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
+这需要修改python中的lib/pynput/_util/win32.py文件，若使用anaconda，路径为：adaconda(anaconda安装地址)/envs/python27(虚拟环境名称)/Lib/site-packages/lib/pynput/_util/win32.py（可参考：https://github.com/moses-palmer/pynput/pull/508/commits/563e92b906bd03d1c7d92f15a533754cab6bdc1a ）或下载我的win32.py文件（版本1.7.7）
 
 ## 不一定会出现的问题
 ### 问题X：pyads使用typing问题
