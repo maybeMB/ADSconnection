@@ -60,4 +60,8 @@ typing是python3.5才出现的标准包，python2.7使用需要安装typing包�
 conda install typing //或用pip
 ```
 
+## 问题6：Tkinter在非主线程中更新导致程序错误
+Tkinter组件在非主线程中使用config函数更新会报错
+### 问题6解决方案
+使用tk.after(0, 函数名)函数，将界面更新的内容全部放入after调用的函数中
 
