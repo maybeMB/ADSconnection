@@ -69,7 +69,31 @@ tk.after(0, 函数名)
 ```
 将界面更新的内容全部放入作为after参数的函数中，after函数会在线程运行之后延迟指定的时间执行作为参数的函数
 
-## 问题7：使用Tkinter创建隐藏标题栏的窗口，打开窗口时大小发生变化
-Tkinter创建隐藏标题栏的窗口，设置为 geometry('666x460+61+73') 。 启动程序时打开的窗口大小正常，但最小化再打开后窗口尺寸变大，变为 682x499 ，超过设置的尺寸。**经测试，未隐藏标题栏的窗口不会出现此问题；窗口 x 固定增加16，y 固定增加39**
-### 问题7解决方案
+## 问题7：Tkinter创建的窗口隐藏标题栏后使用iconify()报错
+Tkinter创建的窗口隐藏标题栏后使用deiconify()报错
+```
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "E:\software\adaconda\Lib\tkinter\__init__.py", line 1948, in __call__
+    return self.func(*args)
+           ^^^^^^^^^^^^^^^^
+  File "e:\code_for_work\working\connect_software\connect copy.py", line 255, in minimize_window
+    root.iconify()
+  File "E:\software\adaconda\Lib\tkinter\__init__.py", line 2142, in wm_iconify
+    return self.tk.call('wm', 'iconify', self._w)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: can't iconify ".": override-redirect flag is set
+```
+### 问题6解决方案
+再调用iconify()前添加标题栏
+```
+root.overrideredirect(False) # 不取消会报错
+root.iconify()    
+root.overrideredirect(True) 
+```
+
+## 问题8：使用Tkinter创建隐藏标题栏的窗口，打开窗口时大小发生变化
+Tkinter创建隐藏标题栏的窗口，设置为 geometry('666x460+61+73') 。 启动程序时打开的窗口大小正常，但最小化再打开后窗口尺寸变大，变为 682x499 ，超过设置的尺寸。（可能与问题7的解决方案有关）
+**经测试，未隐藏标题栏的窗口不会出现此问题；窗口 x 固定增加16，y 固定增加39**
+### 问题8解决方案
 暂无
