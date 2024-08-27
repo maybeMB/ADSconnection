@@ -85,7 +85,7 @@ Traceback (most recent call last):
 _tkinter.TclError: can't iconify ".": override-redirect flag is set
 ```
 ### ~~问题7解决方案~~  新的解决方案看：问题8解决方案
-~~再调用iconify()前添加标题栏~~
+~~在调用iconify()前添加标题栏~~
 ```
 root.overrideredirect(False) # 不取消会报错
 root.iconify()    
