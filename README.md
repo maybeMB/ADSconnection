@@ -12,7 +12,7 @@ python2.7.x并不常用，所以通过anaconda的虚拟环境解决。
 进入cmd窗口
 ```
 set CONDA_FORCE_32BIT=1  //切换到32位
-conda create --name python27 python=2.7  //创建一个python3.6的环境，命名为python27
+conda create --name python27 python=2.7  //创建一个python2.7的环境，命名为python27
 conda info --envs  //查看是否添加成功
 activate python27  //切换到python2.7环境
 python --version  //确认python环境
